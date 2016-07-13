@@ -4,7 +4,6 @@ node_js:
 install:
   - npm install -g grunt-cli karma@~0.10.0 bower
   - npm install
-  - bower install
 script:
   - grunt
 notifications:

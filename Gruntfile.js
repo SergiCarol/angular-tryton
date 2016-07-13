@@ -96,12 +96,11 @@ module.exports = function(grunt) {
       },
       ngdocs: {
         options: {
-          startPage: '/api/openlabs.angular-tryton',
+          startPage: '/api/angular2-tryton',
           image: "example/images/ng-tryton-logo.png",
           scripts: [
             'angular.js',
-            'src/tryton.js',
-            'bower_components/ngstorage/ngStorage.min.js'
+            'src/tryton.js'
           ],
           html5Mode: false
         },
