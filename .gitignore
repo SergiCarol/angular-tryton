@@ -17,3 +17,12 @@ coverage
 node_modules
 bower_components
 docs
+
+# Node generated files
+node_modules
+npm-debug.log
+
+# Ignored files
+*.js
+*.map
+*.d.ts

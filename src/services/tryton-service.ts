@@ -1,5 +1,5 @@
-import {Injectable} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Locker} from 'angular2-locker'
@@ -49,7 +49,7 @@ export class TrytonService {
             .catch(this._handleError);
     }
 
-    _handleError(error) {
+    private _handleError(error) {
         console.error(error);
         if (error instanceof String) {
             return Observable.throw(error.json().error);

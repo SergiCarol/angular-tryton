@@ -1,0 +1,11 @@
+example
+src
+test
+
+# Node generated files
+node_modules
+npm-debug.log
+
+# Ignored files
+*.ts
+!*.d.ts

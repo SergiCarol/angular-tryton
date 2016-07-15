@@ -1,7 +1,7 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
-import {Locker} from 'angular2-locker'
+import {Locker} from 'angular2-locker';
 
 import {TrytonService} from './tryton-service';
 
@@ -103,7 +103,7 @@ export class SessionService {
         });
     }
 
-    _tryLogin(database: string, username: string, password: string): Observable<{userId: string, sessionId: string}> {
+    private _tryLogin(database: string, username: string, password: string) {
         // call login on tryton server and if the login is succesful set the
         // userId and session
         return this.trytonService.rpc(
@@ -111,8 +111,8 @@ export class SessionService {
             .map(response => {
                 if (response && response instanceof Array && response.length == 2) {
                     return {
-                        'userId': response[0],
-                        'sessionId': response[1],
+                        'userId': String(response[0]),
+                        'sessionId': String(response[1]),
                     }
                 } else {
                     console.log('Returned data by common.login:', response);
