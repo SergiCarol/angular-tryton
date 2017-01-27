@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { Locker } from 'angular2-locker';
+import { Locker } from 'angular-safeguard';
 import { TrytonService } from './tryton-service';
 export declare class SessionService {
     private trytonService;

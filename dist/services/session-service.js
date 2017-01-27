@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 const Observable_1 = require('rxjs/Observable');
 require('rxjs/Rx');
-const angular2_locker_1 = require('angular2-locker');
+const angular_safeguard_1 = require('angular-safeguard');
 const tryton_service_1 = require('./tryton-service');
 let SessionService = class SessionService {
     constructor(trytonService, locker) {
@@ -119,7 +119,7 @@ let SessionService = class SessionService {
 };
 SessionService = __decorate([
     core_1.Injectable(), 
-    __metadata('design:paramtypes', [tryton_service_1.TrytonService, angular2_locker_1.Locker])
+    __metadata('design:paramtypes', [tryton_service_1.TrytonService, angular_safeguard_1.Locker])
 ], SessionService);
 exports.SessionService = SessionService;
 //# sourceMappingURL=session-service.js.map

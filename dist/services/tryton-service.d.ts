@@ -1,7 +1,7 @@
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { Locker } from 'angular2-locker';
+import { Locker } from 'angular-safeguard';
 export declare class TrytonService {
     private http;
     private locker;

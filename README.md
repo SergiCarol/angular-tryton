@@ -10,13 +10,9 @@ JSONRPC working in the *Angular Way*. Contains two services `trytonService` and
 
 Install
 -------
-DO NOT DO THIS FOR THE TIME BEEING
 ```bash
 npm install angular2-tryton
 ```
-Clone the respository
-```bash
-git clone git@github.com:NaN-tic/angular-tryton.git angular2-tryton
 ```
 And checkout to branch ng2
 Usage

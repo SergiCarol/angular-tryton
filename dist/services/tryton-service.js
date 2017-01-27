@@ -12,7 +12,7 @@ const core_1 = require('@angular/core');
 const http_1 = require('@angular/http');
 const Observable_1 = require('rxjs/Observable');
 require('rxjs/Rx');
-const angular2_locker_1 = require('angular2-locker');
+const angular_safeguard_1 = require('angular-safeguard');
 let TrytonService = class TrytonService {
     constructor(http, locker) {
         this.http = http;
@@ -50,12 +50,7 @@ let TrytonService = class TrytonService {
     }
     _handleError(error) {
         console.error(error);
-        if (error instanceof String) {
-            return Observable_1.Observable.throw(error.json().error);
-        }
-        else {
-            return Observable_1.Observable.throw(error || 'Server error');
-        }
+        return Observable_1.Observable.throw(error || 'Server error');
     }
     _handleTrytonError(error) {
         console.log("TrytonError:", error);
@@ -105,7 +100,7 @@ let TrytonService = class TrytonService {
 };
 TrytonService = __decorate([
     core_1.Injectable(), 
-    __metadata('design:paramtypes', [http_1.Http, angular2_locker_1.Locker])
+    __metadata('design:paramtypes', [http_1.Http, angular_safeguard_1.Locker])
 ], TrytonService);
 exports.TrytonService = TrytonService;
 ;

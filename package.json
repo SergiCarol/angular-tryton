@@ -1,17 +1,18 @@
 {
   "name": "angular2-tryton",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "AngularJS 2 Tryton RPC Client Service",
   "license": "MIT",
-  "author": "Guillem Barba <guillem@alcarrer.net>",
+  "author": "Guillem Barba <guillem@alcarrer.net> | Sergi Carol <sergicarol35@gmail.com>",
   "contributors": [
     "Sharoon Thomas <sharoon.thomas@fulfil.io>",
     "Tarun Bhardwaj <tarun.bhardwaj@fulfil.io>",
-    "Gaurav Butola <gaurav.butola@openlabs.co.in>"
+    "Gaurav Butola <gaurav.butola@openlabs.co.in>",
+    "Sergi Carol <sergi@nan-tic.com>"
   ],
-  "homepage": "https://github.com/gbarba/angular-tryton#readme",
+  "homepage": "https://github.com/NaN-tic/angular-tryton#readme",
   "bugs": {
-    "url": "https://github.com/gbarba/angular-tryton/issues"
+    "url": "https://github.com/NaN-tic/angular-tryton/issues"
   },
   "keywords": [
     "angular2",

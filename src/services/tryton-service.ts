@@ -51,11 +51,7 @@ export class TrytonService {
 
     private _handleError(error) {
         console.error(error);
-        if (error instanceof String) {
-            return Observable.throw(error.json().error);
-        } else {
-            return Observable.throw(error || 'Server error');
-        }
+        return Observable.throw(error || 'Server error');
     }
 
     _handleTrytonError(error) {
