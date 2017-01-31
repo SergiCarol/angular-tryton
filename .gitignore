@@ -21,6 +21,7 @@ docs
 # Node generated files
 node_modules
 npm-debug.log
+dist
 
 # Ignored files
 src/**/*.js
