@@ -29,10 +29,10 @@ export class SessionService {
 
     setSession(database: string, login: string, userId: number, sessionId: number) {
         // TODO: save it in shareable way to be used
-        this.locker.set('database', database || null);
-        this.locker.set('login', login || null);
-        this.locker.set('userId', userId || null);
-        this.locker.set('sessionId', sessionId || null);
+        this.locker.set('database', database["data"] || null);
+        this.locker.set('login', login["data"] || null);
+        this.locker.set('userId', Number(userId["data"]) || null);
+        this.locker.set('sessionId', sessionId["data"] || null);
         this.loadAllFromStorage();
     }
 
