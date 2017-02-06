@@ -13,7 +13,7 @@ export class TrytonService {
         // see https://github.com/MikaAK/angular2-locker
         this.serverUrl = locker.get('serverUrl');
         if (!this.serverUrl) {
-            this.setServerUrl('http://localhost:8000/');
+            this.setServerUrl('https://localhost:8000/');
         }
     }
 
