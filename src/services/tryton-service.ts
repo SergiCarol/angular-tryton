@@ -1,5 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Inject} from '@angular/core';
 import {Http} from '@angular/http';
+import { DOCUMENT } from '@angular/platform-browser'
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Locker} from 'angular-safeguard'
@@ -8,12 +9,13 @@ import {Locker} from 'angular-safeguard'
 export class TrytonService {
     serverUrl: string;
 
-    constructor(private http: Http, private locker: Locker) {
+    constructor(private http: Http, private locker: Locker,
+        @Inject(DOCUMENT) private document: any) {
         // When use it you can choose where to save data (local, session...)
         // see https://github.com/MikaAK/angular2-locker
         this.serverUrl = locker.get('serverUrl');
         if (!this.serverUrl) {
-            this.setServerUrl('https://localhost:8000/');
+          this.setServerUrl(this.document.location.href);
         }
     }
 
