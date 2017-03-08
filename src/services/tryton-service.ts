@@ -78,11 +78,13 @@ export class TrytonService {
                         'error': 'tryton:UserWarning',
                         'messages': error[1]
                     };
+                    break;
                 case "ConcurrencyException":
                     tryton_error = {
                         'error': 'tryton:ConcurrencyException',
                         'messages': error[1],
                     };
+                    break;
                 default:
                     tryton_error = {
                         'error': 'tryton:ConcurrencyException',
@@ -96,7 +98,7 @@ export class TrytonService {
             };
         }
         // TODO: raise an error that could be showed to user
-        throw new Error(tryton_error);
+        throw tryton_error;
     }
 
     getServerVersion(): Observable<{}> {
