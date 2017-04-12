@@ -102,6 +102,6 @@ export class TrytonService {
     }
 
     getServerVersion(): Observable<{}> {
-        return this.rpc(null, 'common.version', [null, null]);
+        return this.rpc(null, 'common.db.version', [null, null]);
     }
 };

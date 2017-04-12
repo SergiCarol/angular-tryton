@@ -1,9 +1,9 @@
 {
-  "name": "angular2-tryton",
+  "name": "angular2-tryton-4.0",
   "version": "2.2.6",
   "description": "AngularJS 2 Tryton RPC Client Service",
   "license": "MIT",
-  "author": "Guillem Barba <guillem@alcarrer.net> | Sergi Carol <sergicarol35@gmail.com>",
+  "author": "Guillem Barba <guillem@alcarrer.net>",
   "contributors": [
     "Sharoon Thomas <sharoon.thomas@fulfil.io>",
     "Tarun Bhardwaj <tarun.bhardwaj@fulfil.io>",
@@ -48,5 +48,9 @@
   "devDependencies": {
     "typescript": "2.0.0",
     "typings": "^1.0.4"
+  },
+  "directories": {
+    "example": "example",
+    "test": "test"
   }
 }

@@ -97,7 +97,7 @@ export class SessionService {
         // call login on tryton server and if the login is succesful set the
         // userId and session
         return this.trytonService.rpc(
-                database, 'common.login', [username, password])
+                database, 'common.db.login', [username, password])
             .map(response => {
                 if (response && response instanceof Array && response.length == 2) {
                     return {
@@ -105,7 +105,7 @@ export class SessionService {
                         'sessionId': String(response[1]),
                     }
                 } else {
-                    console.log('Returned data by common.login:', response);
+                    console.log('Returned data by common.db.login:', response);
                     return Observable.throw(
                         'Unexpected returned data for common.login method');
                 }
