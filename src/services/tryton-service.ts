@@ -1,5 +1,5 @@
 import {Injectable, Inject} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import { DOCUMENT } from '@angular/platform-browser'
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
@@ -8,6 +8,10 @@ import {Locker} from 'angular-safeguard'
 @Injectable()
 export class TrytonService {
     serverUrl: string;
+    database: string;
+    login: string;
+    userId: number;
+    sessionId: number;
 
     constructor(private http: Http, private locker: Locker,
         @Inject(DOCUMENT) private document: any) {
@@ -19,8 +23,16 @@ export class TrytonService {
         }
     }
 
-    // TODO: trytonResponseInterceptor
-
+    loadAllFromStorage() {
+        this.database = this.locker.get('database');
+        this.login = this.locker.get('login');
+        this.userId = this.locker.get('userId');
+        this.sessionId = this.locker.get('sessionId');
+    }
+    get_auth() {
+        this.loadAllFromStorage();
+        return btoa(this.login + ':' + this.userId + ':' + this.sessionId);
+    }
     setServerUrl(url) {
         this.serverUrl = url + (url.slice(-1) === '/' ? '' : '/');
         this.locker.set('serverUrl', this.serverUrl);
@@ -30,12 +42,17 @@ export class TrytonService {
         // Original tryton service rpc()
         // var _params = Fulfil.transformRequest(params);
         let _params = params;
+        let headers = new Headers()
+        headers.append('Content-Type', 'application/json')
+        headers.append('Authorization','Session ' + this.get_auth());
         return this.http.post(
-            this.serverUrl + (database || ''),
+            this.serverUrl + (database || '') + '/',
             JSON.stringify({
                 'method': method,
                 'params': _params || [],
-            }))
+            }),{
+                headers: headers
+            })
             .map(res => {
                 let new_res = res.json();
                 console.log("new_res:", new_res);

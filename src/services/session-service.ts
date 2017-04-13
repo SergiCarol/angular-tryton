@@ -35,6 +35,10 @@ export class SessionService {
         this.locker.set('sessionId', sessionId || null);
         this.loadAllFromStorage();
     }
+    get_auth() {
+        this.loadAllFromStorage();
+        return btoa(this.login + ':' + this.userId + ':' + this.sessionId);
+    }
 
     clearSession() {
         this.userId = null;
@@ -61,8 +65,6 @@ export class SessionService {
         const new_context = Object.assign({}, this.context || {}, context || {})
         // Concat list in a new immutable list
         const new_params = [
-            this.userId,
-            this.sessionId,
             ...params || [],
             new_context
         ];

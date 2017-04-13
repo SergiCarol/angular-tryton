@@ -5,16 +5,17 @@ Angular Tryton
 
 An [Angular 2](https://github.com/angular/angular) module that makes tryton
 JSONRPC working in the *Angular Way*. Contains two services `trytonService` and
-`sessionService` and one filter `urlTryton`.
+`sessionService`.
 
 
 Install
 -------
 ```bash
-npm install angular2-tryton
+npm install angular2-tryton-4.0
 ```
 ```
-And checkout to branch ng2
+This version is for tryton versions >= 4.0, do not use it with lower versions,
+use angular2-tryton instead
 Usage
 -----
 
