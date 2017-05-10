@@ -1,6 +1,6 @@
 {
   "name": "angular2-tryton-4.0",
-  "version": "2.3.0",
+  "version": "2.3.2",
   "description": "AngularJS 2 Tryton RPC Client Service",
   "license": "MIT",
   "author": "Sergi Carol <sergi@nan-tic.com>",

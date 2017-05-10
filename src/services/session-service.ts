@@ -82,6 +82,16 @@ export class SessionService {
             // If URL doesn't have protocol, try https first then http.
             this.trytonService.setServerUrl('https://' + this.trytonService.serverUrl);
             loginObservable = this._tryLogin(database, username, password)
+            .retryWhen(errors => {
+                     return errors.do(function(e) {
+                        let serverUrl = this.trytonService.serverUrl;
+                        if (serverUrl.startsWith('https')) {
+                            this.trytonService.setServerUrl(serverUrl.replace(/^https/i, 'http'));
+                        } else {
+                            throw e;
+                        }
+                    });
+                });
         }
 
         return loginObservable.do(result => {

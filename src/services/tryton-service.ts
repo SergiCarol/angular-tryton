@@ -35,6 +35,9 @@ export class TrytonService {
     }
     setServerUrl(url) {
         this.serverUrl = url + (url.slice(-1) === '/' ? '' : '/');
+        let array = this.serverUrl.split('/')
+        array.splice(3, 1)
+        this.serverUrl = array.join('/')
         this.locker.set('serverUrl', this.serverUrl);
     }
 
